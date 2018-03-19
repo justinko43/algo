@@ -41,6 +41,7 @@ var lengthOfLongestSubstring = function(s) {
   let tracker = 0
   for(let i = 0; i < s.length; i++){
     let indexCheck = longestStr.indexOf(s[i])
+    console.log(indexCheck);
     longestStr += s[i]
     if(indexCheck >= 0){
       longestStr = longestStr.substring(indexCheck+1)
@@ -50,4 +51,4 @@ var lengthOfLongestSubstring = function(s) {
   return tracker
 };
 
-// console.log(lengthOfLongestSubstring('pwwkew'));
+console.log(lengthOfLongestSubstring('pwwkew'));
