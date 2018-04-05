@@ -27,4 +27,15 @@ function memoize(func) {
   return memoizedFunction;
 }
 
+//dynamic programming fib
+function nthFibonacci (num) {
+  
+  f[0] = 0;
+  f[1] = 1;
+  for (let i = 2; i <= num; i++) {
+    f[i] = f[i - 1] + f[i - 2];
+  }
+  return f[num]
+}
+
 const memo = memoize(nthFibonacci);
