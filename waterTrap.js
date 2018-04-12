@@ -33,4 +33,28 @@ var trap = function(height) {
   return area;
 };
 
+//brute force
+//time complexity: O(n^2)
+//space complexity: O(1);
+
+var getArea = function(array) {
+  let area = 0;
+
+  for (let i = 1; i < array.length - 1; i++) {
+    let leftMax = 0, rightMax = 0;
+
+    for (let j = i - 1; j >= 0; j--) {
+      if (array[j] > leftMax && array[j] > array[i]) leftMax = array[j];
+    }
+
+    for (let f = i + 1; f < array.length; f++) {
+      if (array[f] > rightMax && array[f] > array[i]) rightMax = array[f];
+    }
+    
+    if (Math.min(leftMax, rightMax) > array[i]) area += Math.min(leftMax, rightMax) - array[i];
+  }
+
+  return area;
+}
+
 console.log(trap([1,2,3,0,3,2,3,1,4]));
